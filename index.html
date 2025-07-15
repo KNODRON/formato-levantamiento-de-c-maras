@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#0d6efd"/>
+  <meta name="theme-color" content="#0f9d58"/>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <title>FORMATO LEVANTAMIENTO DE CÁMARAS</title>
@@ -16,16 +16,14 @@
   <main>
     <form id="formulario">
       <label>A cargo: <input type="text" id="aCargo" placeholder="Nombre responsable" required></label>
-      <label>Seguimiento de (vehículo o persona): <input type="text" id="seguimiento" required></label>
+      <label>Seguimiento de: <input type="text" id="seguimiento" placeholder="vehículo o persona" required></label>
       <label>Ubicación de la cámara: <input type="text" id="ubicacion" required></label>
       <label>Comuna: <input type="text" id="comuna" required></label>
-      <label>Sentido (ejm al norte): <input type="text" id="sentido" required></label>
-      <label>Hora oficial: <input type="time" id="horaOficial" required></label>
-      <label>Hora Monitor: <input type="time" id="horaMonitor" required></label>
-      <button type="submit">Generar Formato</button>
+      <label>Sentido: <input type="text" id="sentido" placeholder="ejm. al norte" required></label>
+      <label>Hora oficial: <input type="text" id="horaOficial" placeholder="HH:MM:SS" required></label>
+      <label>Hora Monitor: <input type="text" id="horaMonitor" placeholder="HH:MM:SS" required></label>
     </form>
 
-    <textarea id="resultado" readonly placeholder="Aquí se generará el texto..."></textarea>
     <a id="btnWhatsapp" target="_blank">📤 Enviar por WhatsApp</a>
   </main>
 
