@@ -15,7 +15,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     return;
   }
 
-  // Validación ortográfica básica (puedes expandir esto)
+  // Validación ortográfica básica
   if (comuna.toLowerCase().includes("komuna")) {
     alert("Revisa la palabra 'Comuna': parece tener un error ortográfico.");
   }
@@ -29,4 +29,3 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
   btn.href = url;
   btn.style.display = "inline-block";
 });
-
