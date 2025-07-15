@@ -60,3 +60,20 @@ footer {
   padding: 1rem 0;
   color: #777;
 }
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+form input {
+  margin-top: 0.3rem;
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
