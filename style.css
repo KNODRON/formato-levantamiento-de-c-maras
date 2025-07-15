@@ -38,7 +38,7 @@ input {
 
 #btnWhatsapp {
   display: none;
-  background-color: #0f9d58;
+  background-color: #25D366;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -51,7 +51,7 @@ input {
 }
 
 #btnWhatsapp:hover {
-  background-color: #0c7c43;
+  background-color: #1ebe5d;
 }
 
 footer {
