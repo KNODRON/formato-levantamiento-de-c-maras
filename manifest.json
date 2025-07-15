@@ -1,10 +1,10 @@
 {
   "name": "FORMATO LEVANTAMIENTO DE CÁMARAS",
   "short_name": "Levantamiento",
-  "start_url": "índice.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#f0f4f8",
-  "theme_color": "#0d6efd",
+  "theme_color": "#0f9d58",
   "icons": [
     {
       "src": "icono.png",
@@ -13,4 +13,3 @@
     }
   ]
 }
-
