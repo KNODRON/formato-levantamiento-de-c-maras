@@ -1,10 +1,10 @@
 const form = document.getElementById("formulario");
 const btn = document.getElementById("btnWhatsapp");
 
-// Formatea automáticamente HHMMSS → HH:MM:SS
+// Formatear horas automáticamente a HH:MM:SS
 function autoFormatearHora(input) {
   input.addEventListener("input", function () {
-    let val = this.value.replace(/\D/g, '').slice(0, 6); // solo números, máx 6 dígitos
+    let val = this.value.replace(/\D/g, '').slice(0, 6);
     if (val.length >= 4) {
       this.value = val.replace(/(\d{2})(\d{2})(\d{0,2})/, "$1:$2:$3");
     } else if (val.length >= 2) {
@@ -26,21 +26,22 @@ form.addEventListener("input", () => {
   const sentido = document.getElementById("sentido").value.trim();
   const horaOficial = document.getElementById("horaOficial").value.trim();
   const horaMonitor = document.getElementById("horaMonitor").value.trim();
+  const comentario = document.getElementById("comentario").value.trim();
 
-  // Validación campos vacíos
+  const horaRegex = /^\d{2}:\d{2}:\d{2}$/;
+
+  // Validación principal (sin exigir comentario)
   if (!aCargo || !seguimiento || !ubicacion || !comuna || !sentido || !horaOficial || !horaMonitor) {
     btn.style.display = "none";
     return;
   }
 
-  // Validación formato HH:MM:SS
-  const horaRegex = /^\d{2}:\d{2}:\d{2}$/;
   if (!horaRegex.test(horaOficial) || !horaRegex.test(horaMonitor)) {
     btn.style.display = "none";
     return;
   }
 
-  const texto = 
+  let texto = 
 `LEVANTAMIENTO DE CÁMARAS
 A CARGO: ${aCargo}
 SEGUIMIENTO DE: ${seguimiento}
@@ -50,7 +51,10 @@ SENTIDO: ${sentido}
 HORA OFICIAL: ${horaOficial}
 HORA MONITOR: ${horaMonitor}`;
 
-  const url = "https://wa.me/?text=" + encodeURIComponent(texto);
-  btn.href = url;
+  if (comentario !== "") {
+    texto += `\nOBSERVACIÓN: ${comentario}`;
+  }
+
+  btn.href = "https://wa.me/?text=" + encodeURIComponent(texto);
   btn.style.display = "inline-block";
 });
