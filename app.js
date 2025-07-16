@@ -43,6 +43,7 @@ form.addEventListener("input", () => {
 
   let texto = 
 `LEVANTAMIENTO DE CÁMARAS
+
 A CARGO: ${aCargo}
 SEGUIMIENTO DE: ${seguimiento}
 UBICACIÓN DE LA CÁMARA: ${ubicacion}
