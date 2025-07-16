@@ -42,7 +42,7 @@ form.addEventListener("input", () => {
   }
 
   let texto = 
-`*LEVANTAMIENTO DE CÁMARAS*
+`LEVANTAMIENTO DE CÁMARAS
 
 A CARGO: ${aCargo}
 SEGUIMIENTO DE: ${seguimiento}
