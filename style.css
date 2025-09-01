@@ -1,57 +1,76 @@
-.encabezado {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  position: relative;
+:root {
+  --verde: #146b3a;
+  --blanco: #ffffff;
+  --texto: #000000;
+  --fondo-form: rgba(255, 255, 255, 0.95);
 }
 
-.bandera {
-  width: 40px;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: url("bandera-fondo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--texto);
+}
+
+.header {
+  background-color: var(--verde);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6em;
+  border-bottom: 4px solid white;
+}
+
+.papel-picado {
+  width: 100%;
   height: auto;
-  animation: ondear 3s ease-in-out infinite;
-}
-
-@keyframes ondear {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-2deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* 🎉 Guirnalda dieciochera */
-.guirnalda-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.guirnalda {
-  display: flex;
-  gap: 5px;
-  animation: balancear 2s infinite ease-in-out;
-}
-
-.guirnalda span {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
   display: block;
 }
 
-.guirnalda .rojo {
-  background-color: red;
-}
-.guirnalda .blanco {
-  background-color: white;
-  border: 1px solid #ccc;
-}
-.guirnalda .azul {
-  background-color: blue;
+.formulario {
+  background-color: var(--fondo-form);
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #aaa;
 }
 
-@keyframes balancear {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(4px); }
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+button {
+  background-color: var(--verde);
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0e4d2b;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 0.9em;
 }
