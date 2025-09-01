@@ -7,33 +7,111 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <title>FORMATO LEVANTAMIENTO DE CÁMARAS</title>
+  <style>
+    .header {
+      background-color: #0f9d58;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .bandera-chile {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: auto;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background-color: #f5f6fa;
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+    }
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #btnWhatsapp {
+      display: block;
+      margin-top: 2rem;
+      padding: 0.75rem;
+      background-color: #0f9d58;
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 1rem;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <div class="header">
-  <img src="bandera-chile.png" alt="Bandera de Chile" class="bandera-chile" />
-  <h1>LEVANTAMIENTO DE<br>CÁMARAS</h1>
-</div>
-  <header>
-    <h1>LEVANTAMIENTO DE CÁMARAS</h1>
-  </header>
+    <img src="bandera-chile.png" alt="Bandera de Chile" class="bandera-chile" />
+    <h1>LEVANTAMIENTO DE<br>CÁMARAS</h1>
+  </div>
 
   <main>
     <form id="formulario">
-      <label>A cargo: <input type="text" id="aCargo" placeholder="Nombre responsable" required></label>
-      <label>Seguimiento de: <input type="text" id="seguimiento" placeholder="vehículo o persona" required></label>
-      <label>Ubicación de la cámara: <input type="text" id="ubicacion" required></label>
-      <label>Comuna: <input type="text" id="comuna" required></label>
-      <label>Sentido: <input type="text" id="sentido" placeholder="ejm. al norte" required></label>
-      <label>Hora oficial: <input type="text" id="horaOficial" placeholder="HH:MM:SS" inputmode="numeric" required></label>
-      <label>Hora Monitor: <input type="text" id="horaMonitor" placeholder="HH:MM:SS" inputmode="numeric" required></label>
-      <label>Comentario u observación (opcional): <input type="text" id="comentario" placeholder="Ej: sujeto con polera roja" /></label>
+      <label>A cargo:
+        <input type="text" id="aCargo" placeholder="Nombre responsable" required>
+      </label>
+      <label>Seguimiento de:
+        <input type="text" id="seguimiento" placeholder="vehículo o persona" required>
+      </label>
+      <label>Ubicación de la cámara:
+        <input type="text" id="ubicacion" required>
+      </label>
+      <label>Comuna:
+        <input type="text" id="comuna" required>
+      </label>
+      <label>Sentido:
+        <input type="text" id="sentido" placeholder="ejm. al norte" required>
+      </label>
+      <label>Hora oficial:
+        <input type="text" id="horaOficial" placeholder="HH:MM:SS" inputmode="numeric" required>
+      </label>
+      <label>Hora Monitor:
+        <input type="text" id="horaMonitor" placeholder="HH:MM:SS" inputmode="numeric" required>
+      </label>
+      <label>Comentario u observación (opcional):
+        <input type="text" id="comentario" placeholder="Ej: sujeto con polera roja" />
+      </label>
     </form>
 
     <a id="btnWhatsapp" target="_blank">📤 Enviar por WhatsApp</a>
   </main>
 
   <footer>
-    <p>&copy; 2025 - ANALISIS E INVST. CRIMINAL OS-9</p>
+    <p>&copy; 2025 - ANÁLISIS E INVEST. CRIMINAL OS-9</p>
   </footer>
 
   <script src="app.js"></script>
