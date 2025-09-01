@@ -1,61 +1,42 @@
-const form = document.getElementById("formulario");
-const btn = document.getElementById("btnWhatsapp");
+const campos = [
+  document.getElementById("campo0"),
+  document.getElementById("campo1"),
+  document.getElementById("campo2"),
+  document.getElementById("campo3"),
+  document.getElementById("campo4"),
+  document.getElementById("campo5")
+];
 
-// Formatear horas automáticamente a HH:MM:SS
-function autoFormatearHora(input) {
-  input.addEventListener("input", function () {
-    let val = this.value.replace(/\D/g, '').slice(0, 6);
-    if (val.length >= 4) {
-      this.value = val.replace(/(\d{2})(\d{2})(\d{0,2})/, "$1:$2:$3");
-    } else if (val.length >= 2) {
-      this.value = val.replace(/(\d{2})(\d{0,2})/, "$1:$2");
-    } else {
-      this.value = val;
-    }
-  });
+const whatsappBtn = document.getElementById("whatsappBtn");
+
+function validarHora(valor) {
+  return /^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/.test(valor);
 }
 
-autoFormatearHora(document.getElementById("horaOficial"));
-autoFormatearHora(document.getElementById("horaMonitor"));
+function validarDuracion(valor) {
+  return /^\d{1,2}'\s\d{1,2}("|”)?$/.test(valor);
+}
 
-form.addEventListener("input", () => {
-  const aCargo = document.getElementById("aCargo").value.trim();
-  const seguimiento = document.getElementById("seguimiento").value.trim();
-  const ubicacion = document.getElementById("ubicacion").value.trim();
-  const comuna = document.getElementById("comuna").value.trim();
-  const sentido = document.getElementById("sentido").value.trim();
-  const horaOficial = document.getElementById("horaOficial").value.trim();
-  const horaMonitor = document.getElementById("horaMonitor").value.trim();
-  const comentario = document.getElementById("comentario").value.trim();
+function verificarCampos() {
+  const [caso, nro, llamada, hora, duracion, relato] = campos.map(c => c.value.trim());
 
-  const horaRegex = /^\d{2}:\d{2}:\d{2}$/;
+  if (caso && nro && llamada && validarHora(hora) && validarDuracion(duracion) && relato) {
+    const texto = `📞 *REPORTE DE LLAMADA*\n\n` +
+                  `*CASO:* ${caso}\n` +
+                  `*NRO.:* ${nro}\n` +
+                  `*LLAMADA:* ${llamada}\n` +
+                  `*HORA:* ${hora} hrs\n` +
+                  `*DURACIÓN:* ${duracion}\n` +
+                  `*RELATO:* ${relato}`;
 
-  // Validación principal (sin exigir comentario)
-  if (!aCargo || !seguimiento || !ubicacion || !comuna || !sentido || !horaOficial || !horaMonitor) {
-    btn.style.display = "none";
-    return;
+    const mensaje = encodeURIComponent(texto);
+    const numeroFijo = "56933700267";
+    whatsappBtn.href = `https://wa.me/${numeroFijo}?text=${mensaje}`;
+    whatsappBtn.style.display = "block";
+  } else {
+    whatsappBtn.style.display = "none";
   }
+}
 
-  if (!horaRegex.test(horaOficial) || !horaRegex.test(horaMonitor)) {
-    btn.style.display = "none";
-    return;
-  }
-
-  let texto = 
-`LEVANTAMIENTO DE CÁMARAS
-
-A CARGO: ${aCargo}
-SEGUIMIENTO DE: ${seguimiento}
-UBICACIÓN DE LA CÁMARA: ${ubicacion}
-COMUNA: ${comuna}
-SENTIDO: ${sentido}
-HORA OFICIAL: ${horaOficial}
-HORA MONITOR: ${horaMonitor}`;
-
-  if (comentario !== "") {
-    texto += `\nOBSERVACIÓN: ${comentario}`;
-  }
-
-  btn.href = "https://wa.me/?text=" + encodeURIComponent(texto);
-  btn.style.display = "inline-block";
-});
+// Detectar cambios en todos los campos
+campos.forEach(campo => campo.addEventListener("input", verificarCampos));
