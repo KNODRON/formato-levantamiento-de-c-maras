@@ -2,30 +2,57 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REPORTE DE LLAMADA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0f9d58"/>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <title>FORMATO LEVANTAMIENTO DE CÁMARAS</title>
 </head>
 <body>
-  <div class="flag-container">
+  <header>
+  <div class="encabezado">
+    <h1>LEVANTAMIENTO DE CÁMARAS</h1>
     <img src="iconsbandera-chile.png" alt="Bandera de Chile" class="bandera" />
   </div>
-
-  <div class="form-container">
-    <input type="text" id="campo0" placeholder="CASO" />
-    <input type="text" id="campo1" placeholder="NRO." />
-    <input type="text" id="campo2" placeholder="LLAMADA" />
-    
-    <input type="text" id="campo3" inputmode="numeric" placeholder="HORA (HH:MM:SS hrs)" maxlength="8" />
-    <input type="text" id="campo4" inputmode="numeric" placeholder="DURACIÓN (ej. 01' 30&quot;)" />
-
-    <textarea id="campo5" placeholder="RELATO DE LOS HECHOS"></textarea>
-
-    <a id="whatsappBtn" style="display:none" target="_blank">
-      <img src="whatsapp.png" alt="Enviar por WhatsApp" />
-    </a>
+  <div class="guirnalda-container">
+    <div class="guirnalda">
+      <span class="rojo"></span>
+      <span class="blanco"></span>
+      <span class="azul"></span>
+      <span class="rojo"></span>
+      <span class="blanco"></span>
+      <span class="azul"></span>
+      <span class="rojo"></span>
+      <span class="blanco"></span>
+      <span class="azul"></span>
+    </div>
   </div>
+</header>
+
+  <main>
+    <form id="formulario">
+      <label>A cargo: <input type="text" id="aCargo" placeholder="Nombre responsable" required></label>
+      <label>Seguimiento de: <input type="text" id="seguimiento" placeholder="vehículo o persona" required></label>
+      <label>Ubicación de la cámara: <input type="text" id="ubicacion" required></label>
+      <label>Comuna: <input type="text" id="comuna" required></label>
+      <label>Sentido: <input type="text" id="sentido" placeholder="ejm. al norte" required></label>
+      <label>Hora oficial: <input type="text" id="horaOficial" placeholder="HH:MM:SS" inputmode="numeric" required></label>
+      <label>Hora Monitor: <input type="text" id="horaMonitor" placeholder="HH:MM:SS" inputmode="numeric" required></label>
+      <label>Comentario u observación (opcional): <input type="text" id="comentario" placeholder="Ej: sujeto con polera roja" /></label>
+    </form>
+
+    <a id="btnWhatsapp" target="_blank">📤 Enviar por WhatsApp</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - KNODRON</p>
+  </footer>
 
   <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
 </body>
 </html>
