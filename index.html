@@ -2,57 +2,47 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#0f9d58"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEVANTAMIENTO DE CÁMARAS</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <title>FORMATO LEVANTAMIENTO DE CÁMARAS</title>
 </head>
 <body>
-  <header>
-  <div class="encabezado">
-    <h1>LEVANTAMIENTO DE CÁMARAS</h1>
-    <img src="iconsbandera-chile.png" alt="Bandera de Chile" class="bandera" />
+  <div class="header">
+    <h1>LEVANTAMIENTO DE<br />CÁMARAS</h1>
   </div>
-  <div class="guirnalda-container">
-    <div class="guirnalda">
-      <span class="rojo"></span>
-      <span class="blanco"></span>
-      <span class="azul"></span>
-      <span class="rojo"></span>
-      <span class="blanco"></span>
-      <span class="azul"></span>
-      <span class="rojo"></span>
-      <span class="blanco"></span>
-      <span class="azul"></span>
-    </div>
+
+  <img src="papel-picado.png" alt="Decoración dieciochera" class="papel-picado" />
+
+  <div class="formulario">
+    <label>A cargo:</label>
+    <input type="text" placeholder="Nombre responsable" id="aCargo" />
+
+    <label>Seguimiento de:</label>
+    <input type="text" placeholder="vehículo o persona" id="seguimiento" />
+
+    <label>Ubicación de la cámara:</label>
+    <input type="text" id="ubicacion" />
+
+    <label>Comuna:</label>
+    <input type="text" id="comuna" />
+
+    <label>Sentido:</label>
+    <input type="text" placeholder="ejm. al norte" id="sentido" />
+
+    <label>Hora oficial:</label>
+    <input type="text" placeholder="HH:MM:SS" id="horaOficial" inputmode="numeric" />
+
+    <label>Hora Monitor:</label>
+    <input type="text" placeholder="HH:MM:SS" id="horaMonitor" inputmode="numeric" />
+
+    <label>Comentario u observación (opcional):</label>
+    <input type="text" id="comentario" placeholder="Ej: sujeto con polera roja" />
+
+    <button id="btnEnviar">📮 Enviar por WhatsApp</button>
   </div>
-</header>
 
-  <main>
-    <form id="formulario">
-      <label>A cargo: <input type="text" id="aCargo" placeholder="Nombre responsable" required></label>
-      <label>Seguimiento de: <input type="text" id="seguimiento" placeholder="vehículo o persona" required></label>
-      <label>Ubicación de la cámara: <input type="text" id="ubicacion" required></label>
-      <label>Comuna: <input type="text" id="comuna" required></label>
-      <label>Sentido: <input type="text" id="sentido" placeholder="ejm. al norte" required></label>
-      <label>Hora oficial: <input type="text" id="horaOficial" placeholder="HH:MM:SS" inputmode="numeric" required></label>
-      <label>Hora Monitor: <input type="text" id="horaMonitor" placeholder="HH:MM:SS" inputmode="numeric" required></label>
-      <label>Comentario u observación (opcional): <input type="text" id="comentario" placeholder="Ej: sujeto con polera roja" /></label>
-    </form>
-
-    <a id="btnWhatsapp" target="_blank">📤 Enviar por WhatsApp</a>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 - KNODRON</p>
-  </footer>
+  <footer>© 2025 - KNODRON</footer>
 
   <script src="app.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
-  </script>
 </body>
 </html>
