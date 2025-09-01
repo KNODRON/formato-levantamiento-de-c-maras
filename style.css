@@ -1,17 +1,14 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f4f4f4;
-}
-
-.flag-container {
-  text-align: center;
-  padding: 10px;
-  background: #fff;
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  position: relative;
 }
 
 .bandera {
-  width: 100px;
+  width: 40px;
+  height: auto;
   animation: ondear 3s ease-in-out infinite;
 }
 
@@ -23,26 +20,38 @@ body {
   100% { transform: rotate(0deg); }
 }
 
-.form-container {
-  padding: 20px;
+/* 🎉 Guirnalda dieciochera */
+.guirnalda-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
-input, textarea {
+.guirnalda {
+  display: flex;
+  gap: 5px;
+  animation: balancear 2s infinite ease-in-out;
+}
+
+.guirnalda span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
   display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  font-size: 16px;
 }
 
-textarea {
-  height: 100px;
-  resize: vertical;
+.guirnalda .rojo {
+  background-color: red;
+}
+.guirnalda .blanco {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.guirnalda .azul {
+  background-color: blue;
 }
 
-#whatsappBtn img {
-  width: 100%;
-  max-width: 250px;
-  margin-top: 15px;
-  display: block;
+@keyframes balancear {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(4px); }
 }
