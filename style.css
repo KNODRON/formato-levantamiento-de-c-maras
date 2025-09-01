@@ -76,3 +76,22 @@ form input {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.header {
+  background-color: #1c8c44; /* verde institucional */
+  color: white;
+  padding: 16px;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+}
+
+.bandera-chile {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 36px;
+  height: auto;
+  border-radius: 2px;
+}
